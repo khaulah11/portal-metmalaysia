@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portal Bersepadu Analisis & Klimatologi MetMalaysia Sabah</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800 min-h-screen flex flex-col justify-between">
+
+    <!-- Header Section -->
+    <header class="bg-white shadow-sm border-b border-slate-200 py-6">
+        <div class="max-w-6xl mx-auto px-6 flex flex-col md:flex-row items-center gap-6">
+            <div class="text-4xl">🌤️</div>
+            <div>
+                <h1 class="text-2xl md:text-3xl font-bold text-slate-900">SISTEM INTEGRASI ANALISIS & KLIMATOLOGI</h1>
+                <p class="text-slate-500 font-medium text-sm md:text-base">Jabatan Meteorologi Malaysia (MetMalaysia) | Pejabat Meteorologi Sabah</p>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content Hub -->
+    <main class="max-w-6xl mx-auto px-6 py-12 flex-grow">
+        <div class="text-center max-w-2xl mx-auto mb-12">
+            <h2 class="text-xl md:text-2xl font-bold text-slate-800 mb-3">Pintu Masuk Utama Sistem</h2>
+            <p class="text-slate-600 text-sm md:text-base">Sila pilih modul operasi di bawah untuk memulakan pemprosesan ekstraksi data mentah atau analisis klimatologi piawai WMO.</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            
+            <!-- Kad 1: Ekstraksi Data -->
+            <div class="bg-white rounded-2xl p-8 border border-slate-200 shadow-sm hover:shadow-md transition-all flex flex-col justify-between">
+                <div>
+                    <div class="w-14 h-14 bg-sky-100 text-sky-600 rounded-xl flex items-center justify-center text-2xl mb-6 font-bold">
+                        📥
+                    </div>
+                    <span class="text-xs font-semibold uppercase tracking-wider text-sky-600 bg-sky-50 px-3 py-1 rounded-full">Prapemprosesan</span>
+                    <h3 class="text-xl font-bold text-slate-900 mt-3 mb-2">Modul 1: Ekstraksi & Penstrukturan</h3>
+                    <p class="text-slate-600 text-sm mb-6 leading-relaxed">
+                        Memproses siri masa daripada fail mentah stesen AAWS, membersihkan data yang rosak, dan menyusun matriks jadual harian standard.
+                    </p>
+                    <ul class="text-sm text-slate-600 space-y-2 mb-8">
+                        <li class="flex items-center gap-2">✅ Ekstraksi automatik berbilang fail (.xls/.xlsx)</li>
+                        <li class="flex items-center gap-2">✅ Penstrukturan matriks 31x12 harian mengikut tahun</li>
+                        <li class="flex items-center gap-2">✅ Eksport data terformat sedia guna (.xlsx / .zip)</li>
+                    </ul>
+                </div>
+                <!-- LINK SISTEM EKSTRAKSI KAWAN -->
+                <a href="https://dataextraction-4zjprekjhesegathf5skhc.streamlit.app" target="_blank" class="w-full text-center bg-slate-800 hover:bg-slate-900 text-white font-semibold py-3 px-6 rounded-xl transition duration-200 block">
+                    Buka Modul Ekstraksi &rarr;
+                </a>
+            </div>
+
+            <!-- Kad 2: Analisis Klimatologi -->
+            <div class="bg-white rounded-2xl p-8 border-2 border-blue-500 shadow-md hover:shadow-lg transition-all flex flex-col justify-between relative overflow-hidden">
+                <div class="absolute top-0 right-0 bg-blue-500 text-white text-xs font-bold px-4 py-1 rounded-bl-xl uppercase tracking-wider">
+                    Modul Analisis
+                </div>
+                <div>
+                    <div class="w-14 h-14 bg-blue-100 text-blue-600 rounded-xl flex items-center justify-center text-2xl mb-6 font-bold">
+                        📊
+                    </div>
+                    <span class="text-xs font-semibold uppercase tracking-wider text-blue-600 bg-blue-50 px-3 py-1 rounded-full">Klimatologi & Audit</span>
+                    <h3 class="text-xl font-bold text-slate-900 mt-3 mb-2">Modul 2: Analisis Iklim & WMO</h3>
+                    <p class="text-slate-600 text-sm mb-6 leading-relaxed">
+                        Menjana statistik siri masa, audit integriti data hilang WMO-No. 1203, carta anomali iklim, dan visualisasi julat ekstrem.
+                    </p>
+                    <ul class="text-sm text-slate-600 space-y-2 mb-8">
+                        <li class="flex items-center gap-2">✅ Audit WMO (11/5 Rule & Strict Rule)</li>
+                        <li class="flex items-center gap-2">✅ Matriks Harian (Heatmap) & Julat Min-Maks</li>
+                        <li class="flex items-center gap-2">✅ Anomali Iklim (El Niño/Fasa Basah)</li>
+                        <li class="flex items-center gap-2">✅ Perbandingan Berbilang Stesen Serentak</li>
+                    </ul>
+                </div>
+                <!-- LINK SISTEM ANALISIS KITA -->
+                <a href="https://klimatologi-metmalaysia.streamlit.app" target="_blank" class="w-full text-center bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-6 rounded-xl transition duration-200 shadow-md block">
+                    Buka Modul Analisis &rarr;
+                </a>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-white border-t border-slate-200 py-6 text-center text-xs md:text-sm text-slate-500">
+        <div class="max-w-6xl mx-auto px-6">
+            &copy; 2026 Jabatan Meteorologi Malaysia (MetMalaysia) | Pejabat Meteorologi Sabah. Hak Cipta Terpelihara.
+        </div>
+    </footer>
+
+</body>
+</html>
