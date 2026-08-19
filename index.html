@@ -3,93 +3,215 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portal Bersepadu Analisis & Klimatologi MetMalaysia Sabah</title>
+    <title>Portal Bersepadu Analisis & Klimatologi AAWS | MetMalaysia Sabah</title>
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <style>
-        body { font-family: 'Inter', sans-serif; }
-    </style>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+                    },
+                    colors: {
+                        navy: {
+                            800: '#0F172A',
+                            900: '#020617',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
 </head>
-<body class="bg-slate-50 text-slate-800 min-h-screen flex flex-col justify-between">
+<body class="bg-slate-900 text-slate-100 font-sans min-h-screen flex flex-col justify-between selection:bg-blue-600 selection:text-white antialiased">
 
-    <!-- Header Section -->
-    <header class="bg-white shadow-sm border-b border-slate-200 py-6">
-        <div class="max-w-6xl mx-auto px-6 flex flex-col md:flex-row items-center gap-6">
-            <div class="text-4xl">🌤️</div>
-            <div>
-                <h1 class="text-2xl md:text-3xl font-bold text-slate-900">SISTEM INTEGRASI ANALISIS & KLIMATOLOGI</h1>
-                <p class="text-slate-500 font-medium text-sm md:text-base">Jabatan Meteorologi Malaysia (MetMalaysia) | Pejabat Meteorologi Sabah</p>
-            </div>
-        </div>
-    </header>
-
-    <!-- Main Content Hub -->
-    <main class="max-w-6xl mx-auto px-6 py-12 flex-grow">
-        <div class="text-center max-w-2xl mx-auto mb-12">
-            <h2 class="text-xl md:text-2xl font-bold text-slate-800 mb-3">Pintu Masuk Utama Sistem</h2>
-            <p class="text-slate-600 text-sm md:text-base">Sila pilih modul operasi di bawah untuk memulakan pemprosesan ekstraksi data mentah atau analisis klimatologi piawai WMO.</p>
-        </div>
-
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-            
-            <!-- Kad 1: Ekstraksi Data -->
-            <div class="bg-white rounded-2xl p-8 border border-slate-200 shadow-sm hover:shadow-md transition-all flex flex-col justify-between">
-                <div>
-                    <div class="w-14 h-14 bg-sky-100 text-sky-600 rounded-xl flex items-center justify-center text-2xl mb-6 font-bold">
-                        📥
-                    </div>
-                    <span class="text-xs font-semibold uppercase tracking-wider text-sky-600 bg-sky-50 px-3 py-1 rounded-full">Prapemprosesan</span>
-                    <h3 class="text-xl font-bold text-slate-900 mt-3 mb-2">Modul 1: Ekstraksi & Penstrukturan</h3>
-                    <p class="text-slate-600 text-sm mb-6 leading-relaxed">
-                        Memproses siri masa daripada fail mentah stesen AAWS, membersihkan data yang rosak, dan menyusun matriks jadual harian standard.
-                    </p>
-                    <ul class="text-sm text-slate-600 space-y-2 mb-8">
-                        <li class="flex items-center gap-2">✅ Ekstraksi automatik berbilang fail (.xls/.xlsx)</li>
-                        <li class="flex items-center gap-2">✅ Penstrukturan matriks 31x12 harian mengikut tahun</li>
-                        <li class="flex items-center gap-2">✅ Eksport data terformat sedia guna (.xlsx / .zip)</li>
-                    </ul>
+    <!-- Top Navigation Bar -->
+    <nav class="border-b border-slate-800 bg-slate-900/80 backdrop-blur-md sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-6 py-4 flex flex-col md:flex-row items-center justify-between gap-4">
+            <div class="flex items-center gap-4">
+                <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-blue-600 to-indigo-700 flex items-center justify-center text-white shadow-lg shadow-blue-500/20 text-2xl">
+                    🌤️
                 </div>
-                <!-- LINK SISTEM EKSTRAKSI KAWAN -->
-                <a href="https://dataextraction-4zjprekjhesegathf5skhc.streamlit.app" target="_blank" class="w-full text-center bg-slate-800 hover:bg-slate-900 text-white font-semibold py-3 px-6 rounded-xl transition duration-200 block">
-                    Buka Modul Ekstraksi &rarr;
-                </a>
+                <div>
+                    <div class="flex items-center gap-2">
+                        <span class="text-xs font-bold uppercase tracking-widest px-2.5 py-0.5 rounded-full bg-blue-500/10 text-blue-400 border border-blue-500/20">Portal Rasmi Operasi</span>
+                        <span class="inline-flex items-center gap-1.5 text-xs text-emerald-400 font-medium">
+                            <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span> Sistem Aktif
+                        </span>
+                    </div>
+                    <h1 class="text-lg md:text-xl font-extrabold text-white tracking-tight">SISTEM INTEGRASI ANALISIS & KLIMATOLOGI AAWS</h1>
+                    <p class="text-xs text-slate-400">Jabatan Meteorologi Malaysia (MetMalaysia) | Pejabat Meteorologi Sabah</p>
+                </div>
+            </div>
+            <div class="hidden md:flex items-center gap-3">
+                <div class="text-right">
+                    <p class="text-xs text-slate-400">Standard Pemprosesan</p>
+                    <p class="text-xs font-bold text-slate-200">WMO-No. 1203 Certified Logic</p>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content Container -->
+    <main class="max-w-7xl mx-auto px-6 py-12 flex-grow w-full">
+        
+        <!-- Hero Section -->
+        <div class="text-center max-w-3xl mx-auto mb-14">
+            <h2 class="text-3xl md:text-4xl font-extrabold text-white tracking-tight mb-4 leading-tight">
+                Pusat Kawalan & Automasi Data <br class="hidden sm:inline">
+                <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-sky-300 to-indigo-400">
+                    Siri Masa Meteorologi
+                </span>
+            </h2>
+            <p class="text-slate-400 text-sm md:text-base leading-relaxed">
+                Platform berpusat bagi automasi pengekstrakan fail stesen cerapan automatik (AAWS), audit integriti data hilang, dan visualisasi dinamik profil klimatologi kebangsaan.
+            </p>
+        </div>
+
+        <!-- System Architecture Grid Cards -->
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-5xl mx-auto">
+            
+            <!-- Modul 1: Ekstraksi Data -->
+            <div class="group bg-slate-800/60 rounded-3xl p-8 border border-slate-700/70 hover:border-sky-500/50 transition-all duration-300 shadow-xl hover:shadow-2xl hover:shadow-sky-500/10 flex flex-col justify-between relative overflow-hidden backdrop-blur-sm">
+                <div class="absolute -right-12 -top-12 w-40 h-40 bg-sky-500/10 rounded-full blur-3xl group-hover:bg-sky-500/20 transition-all"></div>
+                
+                <div>
+                    <div class="flex items-center justify-between mb-6">
+                        <div class="w-14 h-14 rounded-2xl bg-sky-500/10 border border-sky-500/20 flex items-center justify-center text-sky-400 text-2xl shadow-inner">
+                            📥
+                        </div>
+                        <span class="text-[11px] font-bold uppercase tracking-wider text-sky-300 bg-sky-950/80 border border-sky-500/30 px-3 py-1 rounded-full">
+                            Prapemprosesan Data
+                        </span>
+                    </div>
+
+                    <h3 class="text-2xl font-bold text-white mb-2 group-hover:text-sky-300 transition-colors">
+                        Modul 1: Ekstraksi & Penstrukturan
+                    </h3>
+                    <p class="text-slate-400 text-sm leading-relaxed mb-6">
+                        Menyahstruktur fail mentah siri masa berbilang stesen, membersihkan rekod tidak sah, dan menyusun matriks kalendar harian berformat standard.
+                    </p>
+
+                    <div class="space-y-3.5 mb-8">
+                        <div class="flex items-start gap-3 text-xs text-slate-300">
+                            <span class="text-sky-400 mt-0.5 font-bold">✓</span>
+                            <span>Pengekstrakan berbilang fail serentak (Batch Processing <code>.xls</code>/<code>.xlsx</code>)</span>
+                        </div>
+                        <div class="flex items-start gap-3 text-xs text-slate-300">
+                            <span class="text-sky-400 mt-0.5 font-bold">✓</span>
+                            <span>Penstrukturan matriks 31x12 harian mengikut tahun cerapan</span>
+                        </div>
+                        <div class="flex items-start gap-3 text-xs text-slate-300">
+                            <span class="text-sky-400 mt-0.5 font-bold">✓</span>
+                            <span>Penjanaan laporan arkib Excel terpiawai berserta statistik bulanan</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div>
+                    <div class="flex items-center justify-between text-xs text-slate-500 border-t border-slate-700/60 pt-4 mb-4">
+                        <span>Enjin Pemprosesan</span>
+                        <span class="font-mono text-slate-400 font-semibold">Pandas & OpenPyXL Engine</span>
+                    </div>
+                    <a href="https://dataextraction-4zjprekjhesegathf5skhc.streamlit.app" target="_blank" class="w-full inline-flex items-center justify-center gap-2 bg-slate-700 hover:bg-sky-600 text-white font-semibold py-3.5 px-6 rounded-2xl transition duration-200 shadow-md group-hover:shadow-sky-500/25 text-sm">
+                        <span>Buka Modul Ekstraksi</span>
+                        <span class="transition-transform group-hover:translate-x-1">&rarr;</span>
+                    </a>
+                </div>
             </div>
 
-            <!-- Kad 2: Analisis Klimatologi -->
-            <div class="bg-white rounded-2xl p-8 border-2 border-blue-500 shadow-md hover:shadow-lg transition-all flex flex-col justify-between relative overflow-hidden">
-                <div class="absolute top-0 right-0 bg-blue-500 text-white text-xs font-bold px-4 py-1 rounded-bl-xl uppercase tracking-wider">
+            <!-- Modul 2: Analisis Klimatologi -->
+            <div class="group bg-slate-800/60 rounded-3xl p-8 border border-blue-500/50 hover:border-blue-400 transition-all duration-300 shadow-xl hover:shadow-2xl hover:shadow-blue-500/20 flex flex-col justify-between relative overflow-hidden backdrop-blur-sm">
+                <div class="absolute -right-12 -top-12 w-40 h-40 bg-blue-500/20 rounded-full blur-3xl group-hover:bg-blue-500/30 transition-all"></div>
+                
+                <div class="absolute top-0 right-0 bg-gradient-to-l from-blue-600 to-indigo-600 text-white text-[10px] font-extrabold px-4 py-1.5 rounded-bl-2xl uppercase tracking-widest shadow-md">
                     Modul Analisis
                 </div>
+
                 <div>
-                    <div class="w-14 h-14 bg-blue-100 text-blue-600 rounded-xl flex items-center justify-center text-2xl mb-6 font-bold">
-                        📊
+                    <div class="flex items-center justify-between mb-6">
+                        <div class="w-14 h-14 rounded-2xl bg-blue-500/10 border border-blue-500/30 flex items-center justify-center text-blue-400 text-2xl shadow-inner">
+                            📊
+                        </div>
+                        <span class="text-[11px] font-bold uppercase tracking-wider text-blue-300 bg-blue-950/80 border border-blue-500/30 px-3 py-1 rounded-full mr-24">
+                            Klimatologi & Audit WMO
+                        </span>
                     </div>
-                    <span class="text-xs font-semibold uppercase tracking-wider text-blue-600 bg-blue-50 px-3 py-1 rounded-full">Klimatologi & Audit</span>
-                    <h3 class="text-xl font-bold text-slate-900 mt-3 mb-2">Modul 2: Analisis Iklim & WMO</h3>
-                    <p class="text-slate-600 text-sm mb-6 leading-relaxed">
-                        Menjana statistik siri masa, audit integriti data hilang WMO-No. 1203, carta anomali iklim, dan visualisasi julat ekstrem.
+
+                    <h3 class="text-2xl font-bold text-white mb-2 group-hover:text-blue-300 transition-colors">
+                        Modul 2: Analisis Iklim & Piawaian WMO
+                    </h3>
+                    <p class="text-slate-400 text-sm leading-relaxed mb-6">
+                        Pengiraan profil normal, saringan integriti data hilang mengikut piawaian WMO-No. 1203, analisis anomali siri masa, dan perbandingan stesen serentak.
                     </p>
-                    <ul class="text-sm text-slate-600 space-y-2 mb-8">
-                        <li class="flex items-center gap-2">✅ Audit WMO (11/5 Rule & Strict Rule)</li>
-                        <li class="flex items-center gap-2">✅ Matriks Harian (Heatmap) & Julat Min-Maks</li>
-                        <li class="flex items-center gap-2">✅ Anomali Iklim (El Niño/Fasa Basah)</li>
-                        <li class="flex items-center gap-2">✅ Perbandingan Berbilang Stesen Serentak</li>
-                    </ul>
+
+                    <div class="space-y-3.5 mb-8">
+                        <div class="flex items-start gap-3 text-xs text-slate-300">
+                            <span class="text-blue-400 mt-0.5 font-bold">✓</span>
+                            <span>Audit Integriti Data Hilang (WMO 11/5 Rule & Strict 5/3 Rule)</span>
+                        </div>
+                        <div class="flex items-start gap-3 text-xs text-slate-300">
+                            <span class="text-blue-400 mt-0.5 font-bold">✓</span>
+                            <span>Matriks Harian (Heatmap) & Carta Julat Ekstrem (Range Ribbon)</span>
+                        </div>
+                        <div class="flex items-start gap-3 text-xs text-slate-300">
+                            <span class="text-blue-400 mt-0.5 font-bold">✓</span>
+                            <span>Anomali Iklim (Fasa Basah/Kering & Pemantauan El Niño/La Niña)</span>
+                        </div>
+                        <div class="flex items-start gap-3 text-xs text-slate-300">
+                            <span class="text-blue-400 mt-0.5 font-bold">✓</span>
+                            <span>Perbandingan Merentas Berbilang Stesen (Multi-Station Overlay)</span>
+                        </div>
+                    </div>
                 </div>
-                <!-- LINK SISTEM ANALISIS KITA -->
-                <a href="https://klimatologi-metmalaysia.streamlit.app" target="_blank" class="w-full text-center bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-6 rounded-xl transition duration-200 shadow-md block">
-                    Buka Modul Analisis &rarr;
-                </a>
+
+                <div>
+                    <div class="flex items-center justify-between text-xs text-slate-500 border-t border-slate-700/60 pt-4 mb-4">
+                        <span>Rangka Kerja Visual</span>
+                        <span class="font-mono text-slate-400 font-semibold">Plotly Interactive Visuals</span>
+                    </div>
+                    <a href="https://klimatologi-metmalaysia.streamlit.app" target="_blank" class="w-full inline-flex items-center justify-center gap-2 bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-500 hover:to-indigo-500 text-white font-semibold py-3.5 px-6 rounded-2xl transition duration-200 shadow-lg shadow-blue-600/30 text-sm">
+                        <span>Buka Modul Analisis</span>
+                        <span class="transition-transform group-hover:translate-x-1">&rarr;</span>
+                    </a>
+                </div>
             </div>
 
         </div>
+
+        <!-- Workflow Summary Bar -->
+        <div class="max-w-5xl mx-auto mt-14 p-6 rounded-2xl bg-slate-800/30 border border-slate-800 text-center">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="flex items-center justify-center gap-3">
+                    <span class="w-8 h-8 rounded-full bg-slate-700 text-slate-300 font-bold text-xs flex items-center justify-center">1</span>
+                    <span class="text-xs text-slate-300 font-medium">Ekstraksi & Penstrukturan AAWS</span>
+                </div>
+                <div class="flex items-center justify-center gap-3">
+                    <span class="w-8 h-8 rounded-full bg-slate-700 text-slate-300 font-bold text-xs flex items-center justify-center">2</span>
+                    <span class="text-xs text-slate-300 font-medium">Saringan & Audit WMO-No. 1203</span>
+                </div>
+                <div class="flex items-center justify-center gap-3">
+                    <span class="w-8 h-8 rounded-full bg-slate-700 text-slate-300 font-bold text-xs flex items-center justify-center">3</span>
+                    <span class="text-xs text-slate-300 font-medium">Visualisasi Iklim & Eksport Laporan</span>
+                </div>
+            </div>
+        </div>
+
     </main>
 
     <!-- Footer -->
-    <footer class="bg-white border-t border-slate-200 py-6 text-center text-xs md:text-sm text-slate-500">
-        <div class="max-w-6xl mx-auto px-6">
-            &copy; 2026 Jabatan Meteorologi Malaysia (MetMalaysia) | Pejabat Meteorologi Sabah. Hak Cipta Terpelihara.
+    <footer class="border-t border-slate-800 bg-slate-950 py-8 text-center text-xs text-slate-500">
+        <div class="max-w-7xl mx-auto px-6 space-y-2">
+            <p class="font-medium text-slate-400">
+                &copy; 2026 Jabatan Meteorologi Malaysia (MetMalaysia) | Pejabat Meteorologi Sabah.
+            </p>
+            <p class="text-[11px] text-slate-600">
+                Dibangunkan untuk automasi arkib siri masa dan pemprosesan klimatologi saintifik.
+            </p>
         </div>
     </footer>
 
